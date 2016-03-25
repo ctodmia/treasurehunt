@@ -12,7 +12,7 @@ diagram 1
 
 */
 
-var Location = function (i, j) {
+var Location = function (i,j) {
 	this.position = [i,j]
 	this.neighbor = [[i-1, j], [i, j+1], [i+1, j], [i, j-1]]
 }
@@ -31,11 +31,24 @@ var Queue = function() {
 // var begin = new Location(2,3);
 // var final = new Location (12, 10);
 // findTreasure(begin, final)
-var findTreasure = function(start, target) {
+var checkPosition = function(arr1, arr2) {
+	if(arr1.length !== arr2.length) {
+		return false;
+	}
+	for(var i=0; i<arr1.length; i--) {
+		if(arr1[i] !== arr2[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+var findTreasure = function(start,target) {
 	var path = [];
 	var queue = new Queue();
 	queue.add(start);
 
+//ok wow this solution is not going to work because now we must come up with an 
 	while(loc = queue.pop()) {
 		console.log(target.position)
 		if(loc.position !== target.position) {
