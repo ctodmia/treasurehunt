@@ -23,14 +23,37 @@ var Queue = function() {
 		store.push(pair);
 	}
 	this.pop = function () {
-		store.shift();
+		return store.shift();
 	}
 }
 //start and target are both instances of the location 
 //example:
-//var begin = new Location(2,3);
-//var final = new Location (12, 10);
-
+// var begin = new Location(2,3);
+// var final = new Location (12, 10);
+// findTreasure(begin, final)
 var findTreasure = function(start, target) {
+	var path = [];
+	var queue = new Queue();
+	queue.add(start);
 
+	while(loc = queue.pop()) {
+		console.log(target.position)
+		if(loc.position !== target.position) {
+			return true;
+		}
+
+		// path.push(loc.position);
+		// if(loc.position === target.position) {
+		// 	return path;
+		// }
+		// for(var i=0; i<loc.neighbor.length; i++) {
+		// 	x = loc.neighbor[i][0];
+		// 	y = loc.neighbor[i][1];
+		// 	var neighbor = new Location(x,y)
+		// 	queue.add(neighbor);
+		// }
+	}
 }
+var begin = new Location(2,3);
+var final = new Location (12, 10);
+findTreasure(begin, final)
